@@ -1,0 +1,18 @@
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div class="modal-content shadow-lg">
+    <div class="modal-header">
+        <h5 class="modal-title">Upload Excel</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body">
+        <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" />
+        <div *ngIf="excelData.length">
+            <h3>Uploaded Data:</h3>
+            <pre>{{ excelData | json }}</pre>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="uploadFile()">Upload</button>
+    </div>
+</div>

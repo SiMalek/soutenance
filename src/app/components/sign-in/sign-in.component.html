@@ -1,0 +1,86 @@
+<div class="auth-container">
+  <div class="auth-left">
+    <div class="auth-form-container">
+      <div class="logo">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQwAAAC8CAMAAAC672BgAAAAb1BMVEX///8AAACBgYFjY2PW1tbBwcH6+vqnp6e+vr5oaGg6OjoXFxfv7+8ODg7Nzc2amppPT0/r6+t7e3v29vZvb2/c3NxbW1urq6uRkZHj4+PKyspISEgzMzMbGxuIiIh0dHRCQkK1tbUjIyOXl5cqKip0fSZbAAAD0UlEQVR4nO3Y63aiMBSGYdCK2traior1QGvt/V/jTLOTkBOiaNfqj/f5MyMJBL4SsiHLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/12agJFqKxU/Dx0z9+Bi0WFSm/3aR7DCv3qPhiuSplKqtLvy+KRtnr5dqXie61N6wFxrlyiZuGaiGhfzIWy1N/3Frl9eZPeheNiRP5VV6F37flEe7z/bQfma7t6vT+JA9oxxXavNz1hXGR3cY+d4e9THYybGUpqci6Jvwabq8tY/pdrtY8Swxhts/1eZRZxjTC8LIV+EFxndinV8ehg13fjaMfBaN0kVPlLG/tfKvVF/TQ8zeUhJGHfQZqq3b6AIrf7gmyjCMUWJMm63cTVV0Xiu536+fJ+b+9PacybbSD+PsYcapTLMXuSL/Ar18lIndHoZx9q87VV1e4oa6bxilTJR1PMrR/u4dxkNbGM3Usb2SYZy9oNYwTrtBNeqRhZ0ozaVn2zCeu94Z+/BWfFe/d1/3C+MGy2BSZIfwDr3rnTGWVfvLjFeq4R7Lp1QYZXbGb4RRyrXakqGOrks6TBvrqHBKh7FNhDHP1mrrp2wr1MZDKetaGMbQGTNa/4MwypkvXdx10c8v/VCTEsNbbPNISxjTauyaPybD0Au3zENJ5j1Lh+F66Ahj2NX/MnLUg5zIpz67PmGk+XXG/zBkSqj6dmnO+/YwpvcJQ08U9Y4iJcbJa78tjKb8NmGY2vGUbdS/k+wPhWEmyoMpMfZ+s7SOJo3oCO1hTJvgbBhmNZX7Qj1p0mFUzphRzRGEUe9ete+bwtDH3Zv/rPxWOfOzB9DPDPWokEmQL34eIEd3cWzCcOosXZynw+hXdG1uC0NPlLkUBnXQenEYsprMdrLDMezkhNHcSvq1LR1Gvzqjvi2M7Chnpiqfr7DxyjDMBwB3hihuGKaPqe3+UhjuwhQd/uowTLYH/4S8MORa7MeJe06Tm8OY2Szizw2yfTuK2ReusOhafemJ5x7HDyPbOXVoSxjHxJj26b1QXVrfWoMH31X0HzN/jiu3vJX9w0YVaLHW08CpqIMwym+nnOleWi3TpeN7Ro8vfw09UUZxS/uAtlBNlOMb3ad5XQ/CyAon9x5h3PtLl0smyjTRcsGIqXcT/T7cLE7qhdWv5yxZz54v+AbaPLyOZ7L47vUK35ish8N16pH1OmwzcPcdroNi7F06rU2vxc+PaMEVxfSna7P+LFrHdL4tzObpLsvTfd9lAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4Df8AM6As4dHbgLkAAAAASUVORK5CYII="
+          alt="Vermeg Logo" class="d-inline-block align-top" style="width: 50px;"> Q&A Platform
+      </div>
+
+      <h1>Welcome Back</h1>
+      <p class="subtitle">Access the Vermeg Q&A Platform</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-container">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" formControlName="email" placeholder="your@email.com">
+          </div>
+          <div class="error-message" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+            Please enter a valid email address
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" formControlName="password" placeholder="••••••••">
+          </div>
+          <div class="error-message" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+            Password must be at least 6 characters long
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+
+        <button type="submit" [disabled]="!loginForm.valid || loading" class="btn-submit">
+          Sign In
+          <span *ngIf="loading" class="spinner-border spinner-border-sm ml-2" role="status"></span>
+        </button>
+
+        <p *ngIf="message" class="mt-3 text-warning">{{ message }}</p>
+      </form>
+
+      <!-- Loader Modal -->
+      <div class="modal" tabindex="-1" [ngClass]="{'show': loading}" style="display: block;" *ngIf="loading">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <p class="mt-3">Processing, please wait...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-right">
+    <div class="feature-showcase">
+      <h2>Why Join Vermeg Q&A?</h2>
+      <div class="features">
+        <div class="feature-item">
+          <i class="fas fa-comments"></i>
+          <h3>Expert Answers</h3>
+          <p>Get answers from Vermeg professionals and industry experts</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Knowledge Sharing</h3>
+          <p>Share your expertise and learn from others</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-users"></i>
+          <h3>Community Growth</h3>
+          <p>Be part of a growing professional community</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

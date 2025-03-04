@@ -1,0 +1,42 @@
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fc;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar {
+    background-color: #1d3557;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #e63946;
+}
+
+.btn {
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.table-primary {
+    background-color: #e9ecef;
+    color: #343a40;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}

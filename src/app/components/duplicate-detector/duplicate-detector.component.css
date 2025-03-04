@@ -1,0 +1,136 @@
+.duplicate-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+
+    h2 {
+        margin: 0;
+        color: #2c3e50;
+        font-weight: 500;
+    }
+}
+
+.no-duplicates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    color: #7f8c8d;
+
+    mat-icon {
+        font-size: 48px;
+        height: 48px;
+        width: 48px;
+        margin-bottom: 16px;
+        color: #27ae60;
+    }
+}
+
+.duplicates-list {
+    padding: 16px;
+}
+
+.duplicate-card {
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &.selected {
+        border: 2px solid #3498db;
+    }
+}
+
+.similarity-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+.question-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.question-box {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 4px;
+
+    h3 {
+        margin: 0 0 16px 0;
+        color: #2c3e50;
+        font-size: 1.1em;
+    }
+
+    p {
+        margin: 0 0 16px 0;
+        color: #34495e;
+        line-height: 1.6;
+    }
+}
+
+.metadata {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    color: #7f8c8d;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        mat-icon {
+            font-size: 16px;
+            height: 16px;
+            width: 16px;
+        }
+    }
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.time-difference {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+mat-chip-list {
+    margin-top: 8px;
+
+    mat-chip {
+        font-size: 0.9em;
+        background: #e0e0e0;
+    }
+}

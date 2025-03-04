@@ -1,0 +1,177 @@
+<div class="landing-container">
+
+    <header class="hero" [@fadeIn]>
+  <!-- Navbar section -->
+        <nav class="navbar">
+            <div class="logo">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQwAAAC8CAMAAAC672BgAAAAb1BMVEX///8AAACBgYFjY2PW1tbBwcH6+vqnp6e+vr5oaGg6OjoXFxfv7+8ODg7Nzc2amppPT0/r6+t7e3v29vZvb2/c3NxbW1urq6uRkZHj4+PKyspISEgzMzMbGxuIiIh0dHRCQkK1tbUjIyOXl5cqKip0fSZbAAAD0UlEQVR4nO3Y63aiMBSGYdCK2traior1QGvt/V/jTLOTkBOiaNfqj/f5MyMJBL4SsiHLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/12agJFqKxU/Dx0z9+Bi0WFSm/3aR7DCv3qPhiuSplKqtLvy+KRtnr5dqXie61N6wFxrlyiZuGaiGhfzIWy1N/3Frl9eZPeheNiRP5VV6F37flEe7z/bQfma7t6vT+JA9oxxXavNz1hXGR3cY+d4e9THYybGUpqci6Jvwabq8tY/pdrtY8Swxhts/1eZRZxjTC8LIV+EFxndinV8ehg13fjaMfBaN0kVPlLG/tfKvVF/TQ8zeUhJGHfQZqq3b6AIrf7gmyjCMUWJMm63cTVV0Xiu536+fJ+b+9PacybbSD+PsYcapTLMXuSL/Ar18lIndHoZx9q87VV1e4oa6bxilTJR1PMrR/u4dxkNbGM3Usb2SYZy9oNYwTrtBNeqRhZ0ozaVn2zCeu94Z+/BWfFe/d1/3C+MGy2BSZIfwDr3rnTGWVfvLjFeq4R7Lp1QYZXbGb4RRyrXakqGOrks6TBvrqHBKh7FNhDHP1mrrp2wr1MZDKetaGMbQGTNa/4MwypkvXdx10c8v/VCTEsNbbPNISxjTauyaPybD0Au3zENJ5j1Lh+F66Ahj2NX/MnLUg5zIpz67PmGk+XXG/zBkSqj6dmnO+/YwpvcJQ08U9Y4iJcbJa78tjKb8NmGY2vGUbdS/k+wPhWEmyoMpMfZ+s7SOJo3oCO1hTJvgbBhmNZX7Qj1p0mFUzphRzRGEUe9ete+bwtDH3Zv/rPxWOfOzB9DPDPWokEmQL34eIEd3cWzCcOosXZynw+hXdG1uC0NPlLkUBnXQenEYsprMdrLDMezkhNHcSvq1LR1Gvzqjvi2M7Chnpiqfr7DxyjDMBwB3hihuGKaPqe3+UhjuwhQd/uowTLYH/4S8MORa7MeJe06Tm8OY2Szizw2yfTuK2ReusOhafemJ5x7HDyPbOXVoSxjHxJj26b1QXVrfWoMH31X0HzN/jiu3vJX9w0YVaLHW08CpqIMwym+nnOleWi3TpeN7Ro8vfw09UUZxS/uAtlBNlOMb3ad5XQ/CyAon9x5h3PtLl0smyjTRcsGIqXcT/T7cLE7qhdWv5yxZz54v+AbaPLyOZ7L47vUK35ish8N16pH1OmwzcPcdroNi7F06rU2vxc+PaMEVxfSna7P+LFrHdL4tzObpLsvTfd9lAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4Df8AM6As4dHbgLkAAAAASUVORK5CYII="
+            alt="Vermeg Logo" class="d-inline-block align-top" style="width: 50px;"> Q&A Platform
+                
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#missions">Missions</a>
+                <a href="#geographic">Geographic Directory</a>
+                <a href="#history">History</a>
+                <a href="https://en.wikipedia.org/wiki/Vermeg" target="_blank">About</a>
+                <a href="https://www.vermeg.com/contact-us/" target="_blank">Contact</a>
+                <a class="nav-link" [routerLink]="'/login'"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Strengthen Your Information Security</h1>
+            <p>Ask, learn, and implement best practices with Vermeg's Q&A platform. Get expert insights to secure your systems and data.</p>
+            <button class="cta-btn" [routerLink]="'/login'" routerLinkActive="active">Ask Now</button>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features" [@fadeIn]>
+        <h2>Premium Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-search"></i>
+                <h3>Smart Search</h3>
+                <p>Advanced AI-powered search to find answers instantly</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Team Collaboration</h3>
+                <p>Seamless knowledge sharing across departments</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Enterprise Security</h3>
+                <p>Bank-grade security for your sensitive data</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analytics Dashboard</h3>
+                <p>Track engagement and knowledge gaps</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missions Section -->
+    <section id="missions" class="missions" [@fadeIn]>
+        <h2>Our Missions</h2>
+        <div class="missions-grid">
+            <div class="mission-card">
+                <i class="fas fa-users"></i>
+                <h3>Client-Centric Excellence</h3>
+                <p>Deliver exceptional client service by understanding and addressing their unique needs.</p>
+            </div>
+            <div class="mission-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Innovative Solutions</h3>
+                <p>Transform financial operations with cutting-edge solutions in Collateral Management and Asset Servicing.</p>
+            </div>
+            <div class="mission-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Comprehensive Insurance Services</h3>
+                <p>Provide robust insurance solutions to safeguard clients' financial interests.</p>
+            </div>
+            <div class="mission-card">
+                <i class="fas fa-globe"></i>
+                <h3>Global Expansion</h3>
+                <p>Expand our global footprint to serve clients across diverse markets.</p>
+            </div>
+        </div>
+    </section>
+    
+
+
+   <!-- Geographic Directory Section -->
+<section id="geographic" class="geographic" [@fadeIn]>
+    <h2>Geographic Directory</h2>
+    <div class="geographic-grid">
+        <div class="region-card">
+            <i class="fas fa-globe-europe"></i>
+            <h3>Europe</h3>
+            <p>London, Paris, Frankfurt, Amsterdam, Berlin, Milan</p>
+        </div>
+        <div class="region-card">
+            <i class="fas fa-globe-americas"></i>
+            <h3>Americas</h3>
+            <p>New York, Toronto, São Paulo, Mexico City, Buenos Aires, Montreal</p>
+        </div>
+        <div class="region-card">
+            <i class="fas fa-globe-asia"></i>
+            <h3>Asia Pacific</h3>
+            <p>Singapore, Tokyo, Sydney, Hong Kong, Mumbai, Shanghai</p>
+        </div>
+        <div class="region-card">
+            <i class="fas fa-globe-africa"></i>
+            <h3>Middle East & Africa</h3>
+            <p>Dubai, Tunis, Johannesburg, Cairo, Nairobi, Cape Town</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- History Section -->
+    <section id="history" class="history" [@fadeIn] aria-labelledby="history-heading">
+        <h2 id="history-heading">History</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="year" aria-label="1993">1993</div>
+                <div class="event">
+                    <h3>Company Founded</h3>
+                    <p>Founded in Tunisia by Badreddine Ouali.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year" aria-label="2002">2002</div>
+                <div class="event">
+                    <h3>Independence</h3>
+                    <p>Became independent under the name VERMEG.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year" aria-label="2011">2011</div>
+                <div class="event">
+                    <h3>Acquisition</h3>
+                    <p>Acquired Sofgen's regulatory reporting business.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year" aria-label="2014">2014</div>
+                <div class="event">
+                    <h3>Expansion</h3>
+                    <p>Bought Belgium-based BSB for expansion.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year" aria-label="2017">2017</div>
+                <div class="event">
+                    <h3>Investment</h3>
+                    <p>Crédit Mutuel Arkéa invested 19.5% in VERMEG.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year" aria-label="2018">2018</div>
+                <div class="event">
+                    <h3>Major Acquisition</h3>
+                    <p>Acquired Lombard Risk to enhance risk management.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year" aria-label="2022">2022</div>
+                <div class="event">
+                    <h3>Innovation</h3>
+                    <p>Launched a Low-Code No-Code platform for finance.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year" aria-label="2024">2024</div>
+                <div class="event">
+                    <h3>Global Growth</h3>
+                    <p>Continues expanding with global financial solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <app-footer></app-footer>
+</div>

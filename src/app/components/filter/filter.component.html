@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="card p-3 shadow">
+  <h5 class="mb-3">Filter Questions</h5>
+
+  <div class="row g-2">
+
+    <div class="col-md-3">
+      <label for="theme" class="form-label">Theme</label>
+      <select class="form-select" [(ngModel)]="selectedTheme" (change)="onThemeChange(selectedTheme)" id="theme">
+        <option [value]="null">Select Theme</option>
+        <option *ngFor="let theme of themes" [value]="theme.id">{{ theme.name }}</option>
+      </select>
+    </div>
+
+
+    <div class="col-md-3">
+      <label for="subTheme" class="form-label">Sub-Theme</label>
+      <select class="form-select" [(ngModel)]="selectedSubTheme" (change)="onSubThemeChange(selectedSubTheme)"
+        id="subTheme" [disabled]="!selectedTheme">
+        <option [value]="null">Select Sub-Theme</option>
+        <option *ngFor="let subTheme of subThemes" [value]="subTheme.id">{{ subTheme.name }}</option>
+      </select>
+    </div>
+
+  
+    <div class="col-md-3">
+      <label for="category" class="form-label">Category</label>
+      <select class="form-select" [(ngModel)]="selectedCategory" id="category" [disabled]="!selectedSubTheme">
+        <option [value]="null">Select Category</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+    </div>
+
+
+    <div class="col-md-3">
+      <button class="btn btn-primary mt-3 w-100" (click)="applyFilter()" [disabled]="!selectedTheme">Apply
+        Filter</button>
+    </div>
+  </div>
+</div><br>
+<table class="table table-striped table-hover table-bordered shadow" *ngIf="filteredQuestions.length > 0">
+  <thead class="table-primary">
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let qa of filteredQuestions">
+      <td>{{ qa.question }}</td>
+      <td>{{ qa.answer }}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="filteredQuestions.length === 0" class="alert alert-info mt-3">
+  No questions found for the selected filters.
+</div>

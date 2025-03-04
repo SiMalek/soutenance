@@ -1,0 +1,150 @@
+<!-- Template -->
+<div class="dashboard-container">
+  <app-admin-navbar></app-admin-navbar>
+
+  <!-- Header Section with Stats -->
+  <div class="stats-container mb-4 p-3">
+    <div class="row g-3">
+      <div class="col-md-3">
+        <div class="stat-card bg-primary text-white rounded-lg p-3 shadow-sm">
+          <i class="bi bi-question-circle fs-3"></i>
+          <h3 class="mt-2">{{totalQuestions}}</h3>
+          <p class="mb-0">Total Questions</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card bg-success text-white rounded-lg p-3 shadow-sm">
+          <i class="bi bi-check-circle fs-3"></i>
+          <h3 class="mt-2">{{answeredQuestions}}</h3>
+          <p class="mb-0">Answered</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card bg-warning text-white rounded-lg p-3 shadow-sm">
+          <i class="bi bi-flag fs-3"></i>
+          <h3 class="mt-2">{{flaggedCount}}</h3>
+          <p class="mb-0">Flagged</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card bg-info text-white rounded-lg p-3 shadow-sm">
+          <i class="bi bi-people fs-3"></i>
+          <h3 class="mt-2">{{activeUsers}}</h3>
+          <p class="mb-0">Active Users</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="search-container">
+      <div class="input-group">
+        <span class="input-group-text bg-white">
+          <i class="bi bi-search"></i>
+        </span>
+        <input type="text" class="form-control border-start-0" placeholder="Search questions..."
+          [(ngModel)]="searchTerm" (input)="onSearch()">
+      </div>
+    </div>
+
+    <div class="action-buttons d-flex gap-2">
+      <button class="btn btn-success d-flex align-items-center gap-2 shadow-sm" (click)="openAddModal()"
+        [@buttonHover]="buttonStates.add">
+        <i class="bi bi-plus-circle"></i>
+        <span>Add Q/A</span>
+      </button>
+
+      <button class="btn btn-primary d-flex align-items-center gap-2 shadow-sm" (click)="exportToExcel()"
+        [@buttonHover]="buttonStates.export">
+        <i class="bi bi-file-earmark-excel"></i>
+        <span>Export</span>
+      </button>
+
+      <button class="btn btn-secondary d-flex align-items-center gap-2 shadow-sm" (click)="openUploadModal()"
+        [@buttonHover]="buttonStates.upload">
+        <i class="bi bi-upload"></i>
+        <span>Upload</span>
+      </button>
+
+      <div class="dropdown">
+        <button class="btn btn-warning d-flex align-items-center gap-2 shadow-sm dropdown-toggle" type="button"
+          id="flaggedQuestionsDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+          [@buttonHover]="buttonStates.flagged">
+          <i class="bi bi-flag"></i>
+          <span>Flagged</span>
+          <span *ngIf="unreadCount" class="badge bg-danger rounded-pill">{{unreadCount}}</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow-sm p-0" aria-labelledby="flaggedQuestionsDropdown">
+          <div class="p-2 bg-light border-bottom">
+            <h6 class="mb-0">Flagged Questions</h6>
+          </div>
+          <div class="flagged-items-container" [class.empty]="!flaggedQuestions.length">
+            <li *ngFor="let fq of flaggedQuestions" class="border-bottom">
+              <a class="dropdown-item py-2 px-3" href="#">
+                <div class="d-flex align-items-center gap-2">
+                  <img [src]="getUserAvatar(fq.user_id)" class="rounded-circle" width="24" height="24">
+                  <strong>{{getUserName(fq.user_id)}}</strong>
+                </div>
+                <p class="text-muted mb-0 mt-1 small">{{fq.question}}</p>
+              </a>
+            </li>
+            <li *ngIf="!flaggedQuestions.length" class="p-3 text-center text-muted">
+              <i class="bi bi-emoji-smile"></i> No flagged questions
+            </li>
+          </div>
+          <div class="p-2 bg-light border-top">
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-sm btn-link" [routerLink]="'/flagged-questions'">View All</button>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q&A Table -->
+  <div class="table-responsive shadow-sm rounded">
+    <table class="table table-hover mb-0">
+      <thead>
+        <tr class="bg-light">
+          <th class="border-0" style="width: 80px">ID</th>
+          <th class="border-0">Question</th>
+          <th class="border-0">Answer</th>
+          <th class="border-0 text-end" style="width: 160px">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let qa of filteredQAList" [@rowHover]="rowStates[qa.id]">
+          <td class="align-middle">#{{qa.id}}</td>
+          <td class="align-middle">{{qa.question}}</td>
+          <td class="align-middle">{{qa.answer}}</td>
+          <td class="align-middle text-end">
+            <button class="btn btn-outline-warning btn-sm me-2" (click)="editQA(qa)" matTooltip="Edit">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="btn btn-outline-danger btn-sm" (click)="confirmDelete(qa)" matTooltip="Delete">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="!filteredQAList.length">
+          <td colspan="6" class="text-center py-4 text-muted">
+            <i class="bi bi-inbox fs-2"></i>
+            <p class="mb-0 mt-2">No questions found</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modals -->
+<app-add-edit-modal *ngIf="isAddEditModalOpen" [selectedQA]="selectedQA" (close)="handleModalClose($event)">
+</app-add-edit-modal>
+
+<app-upload-modal *ngIf="isUploadModalOpen" (close)="handleUploadModalClose()">
+</app-upload-modal>
+
+<app-confirm-modal *ngIf="isConfirmModalOpen" [message]="'Are you sure you want to delete this Q&A?'"
+  (confirm)="handleConfirmDelete()" (cancel)="isConfirmModalOpen = false">
+</app-confirm-modal>

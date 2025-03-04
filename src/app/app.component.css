@@ -1,0 +1,45 @@
+/* Custom Colors */
+:root {
+    --vermeg-primary: #003366; /* Dark blue */
+    --vermeg-secondary: #0099cc; /* Light blue */
+    --vermeg-accent: #ff6600; /* Orange */
+    --vermeg-light: #f4f4f4; /* Light gray */
+    --vermeg-dark: #333333; /* Dark gray */
+  }
+  
+  /* Apply colors to Bootstrap components */
+  .bg-primary {
+    background-color: var(--vermeg-primary) !important;
+  }
+  
+  .bg-secondary {
+    background-color: var(--vermeg-secondary) !important;
+  }
+  
+  .text-primary {
+    color: var(--vermeg-primary) !important;
+  }
+  
+  .text-secondary {
+    color: var(--vermeg-secondary) !important;
+  }
+  
+  .btn-primary {
+    background-color: var(--vermeg-primary);
+    border-color: var(--vermeg-primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--vermeg-secondary);
+    border-color: var(--vermeg-secondary);
+  }
+  
+  .btn-secondary {
+    background-color: var(--vermeg-secondary);
+    border-color: var(--vermeg-secondary);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--vermeg-primary);
+    border-color: var(--vermeg-primary);
+  }

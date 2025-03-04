@@ -1,0 +1,14 @@
+<div class="question-list-container">
+    <div *ngIf="questions.length === 0" class="alert alert-warning text-center">
+        No questions found
+    </div>
+    <div *ngFor="let question of questions" class="card mb-3 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">{{ question.question_text }}</h5>
+            <p class="card-text">{{ question.answer_text || 'Answer not available yet.' }}</p>
+            <button *ngIf="!question.answer_text" class="btn btn-outline-danger" (click)="flagQuestion(question.id)">
+                Flag for Admin
+            </button>
+        </div>
+    </div>
+</div>
